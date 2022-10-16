@@ -29,7 +29,7 @@ public class CategoryController {
     }
 
     @PostMapping("/save")
-
+    @ResponseStatus(HttpStatus.CREATED)
     public Category insertCategory(@RequestBody Category category){
         return categoryService.insertCategory(category);
     }
