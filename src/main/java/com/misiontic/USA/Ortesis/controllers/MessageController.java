@@ -23,7 +23,7 @@ public class MessageController {
         return messageService.getAllMessage();
     }
 
-    @PostMapping("(save")
+    @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Message insertMessage(@RequestBody Message message){
         return messageService.insertMessage(message);
