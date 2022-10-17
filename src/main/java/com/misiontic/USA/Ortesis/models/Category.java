@@ -23,18 +23,18 @@ public class Category implements Serializable {
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="category")
     @JsonIgnoreProperties("category")
-    private List<Ortopedic> ortopedic;
+    private List<Ortopedic> ortopedics;
 
 
     //Getter and Setter
 
 
-    public List<Ortopedic> getOrtopedic() {
-        return ortopedic;
+    public List<Ortopedic> getOrtopedics() {
+        return ortopedics;
     }
 
-    public void setOrtopedic(List<Ortopedic> ortopedic) {
-        this.ortopedic = ortopedic;
+    public void setOrtopedics(List<Ortopedic> ortopedics) {
+        this.ortopedics = ortopedics;
     }
 
     public Integer getId() {

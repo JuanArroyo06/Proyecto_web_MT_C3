@@ -25,16 +25,16 @@ public class Ortopedic implements Serializable {
 
     @ManyToOne
     @JoinColumn(name="categoryId")
-    @JsonIgnoreProperties("ortopedic")
+    @JsonIgnoreProperties("ortopedics")
     private Category category;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="ortopedic")
     @JsonIgnoreProperties({"ortopedic","client"})
-    private List<Message> message;
+    private List<Message> messages;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="ortopedic")
     @JsonIgnoreProperties({"ortopedic","message"})
-    public List<Reservation> reservation;
+    public List<Reservation> reservations;
 
 
     //Getter and Setter
@@ -88,19 +88,19 @@ public class Ortopedic implements Serializable {
         this.category = category;
     }
 
-    public List<Message> getMessage() {
-        return message;
+    public List<Message> getMessages() {
+        return messages;
     }
 
-    public void setMessage(List<Message> message) {
-        this.message = message;
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 
-    public List<Reservation> getReservation() {
-        return reservation;
+    public List<Reservation> getReservations() {
+        return reservations;
     }
 
-    public void setReservation(List<Reservation> reservation) {
-        this.reservation = reservation;
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 }
