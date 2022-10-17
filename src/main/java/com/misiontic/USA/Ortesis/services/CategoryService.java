@@ -48,7 +48,7 @@ public class CategoryService {
     }
 
     public boolean deleteCategory(int id) {
-        Boolean aBoolean = getCategory(id).map(category -> {
+        boolean aBoolean = getCategory(id).map(category -> {
             categoryRepository.delete(category);
             return true;
         }).orElse(false);
