@@ -40,7 +40,7 @@ public class OrtopedicController {
         return ortopedicService.updateOrtopedic(ortopedic);
     }
 
-    @DeleteMapping("/delete{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public Boolean deleteClient (@PathVariable("id") int id){
         return ortopedicService.deleteOrtopedic(id);
