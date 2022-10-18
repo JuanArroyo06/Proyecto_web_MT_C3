@@ -1,6 +1,8 @@
 package com.misiontic.USA.Ortesis.controllers;
 
+import com.misiontic.USA.Ortesis.models.CompletedAndCancelled;
 import com.misiontic.USA.Ortesis.models.Reservation;
+import com.misiontic.USA.Ortesis.models.TotalAndClient;
 import com.misiontic.USA.Ortesis.services.ReservationsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,6 +44,22 @@ public class ReservationController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public Boolean deleteReservation(@PathVariable("idReservation")int idReservation){
         return reservationsService.deleteReservation(idReservation);
+    }
+
+    @GetMapping("/report-dates/{fecha1}/{fecha2}")
+    public List<Reservation> getReservationsBetweenDatesReport(@PathVariable("fecha1") String fecha1, @PathVariable("fecha2")String fecha2){
+        return reservationsService.getReservationsBetweenDatesReport(fecha1, fecha2);
+    }
+
+    //Segundo Reporte
+    @GetMapping("/report-status")
+    public CompletedAndCancelled getReservationStatusReport(){
+        return reservationsService.getReservationStatusReport();
+    }
+
+    @GetMapping("/report-clients")
+    public List<TotalAndClient> getTopClientsReport(){
+        return reservationsService.getTopClientsReport();
     }
 
 
